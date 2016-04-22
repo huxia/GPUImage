@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, GPUImageFillModeType) {
 @interface GPUImageView : UIView <GPUImageInput>
 {
     GPUImageRotationMode inputRotation;
-    @public:
+    @public
     BOOL paused;
 }
 
