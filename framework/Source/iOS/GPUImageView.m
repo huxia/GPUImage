@@ -223,6 +223,8 @@
 
 - (void)presentFramebuffer;
 {
+
+    if(paused) return;
     glBindRenderbuffer(GL_RENDERBUFFER, displayRenderbuffer);
     [[GPUImageContext sharedImageProcessingContext] presentBufferForDisplay];
 }
@@ -372,6 +374,8 @@
 - (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex;
 {
     runSynchronouslyOnVideoProcessingQueue(^{
+    
+    	if(paused) return;
         [GPUImageContext setActiveShaderProgram:displayProgram];
         [self setDisplayFramebuffer];
         
